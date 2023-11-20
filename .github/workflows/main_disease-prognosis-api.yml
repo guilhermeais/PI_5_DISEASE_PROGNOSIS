@@ -23,14 +23,14 @@ jobs:
       uses: docker/login-action@v2
       with:
         registry: https://index.docker.io/v1/
-        username: ${{ secrets.AzureAppService_ContainerUsername_09f59c24ea7a4311a7d7c78a83f9a33c }}
-        password: ${{ secrets.AzureAppService_ContainerPassword_7afc080039bf4624a1b6c6efbf664181 }}
+        username: ${{ secrets.AzureAppService_ContainerUsername_d84994f220744a9b8de5b7356737952e }}
+        password: ${{ secrets.AzureAppService_ContainerPassword_ef90731e35e74bf995574241303ed45b }}
 
     - name: Build and push container image to registry
       uses: docker/build-push-action@v3
       with:
         push: true
-        tags: index.docker.io/${{ secrets.AzureAppService_ContainerUsername_09f59c24ea7a4311a7d7c78a83f9a33c }}/guiais/disease_prediction_api:${{ github.sha }}
+        tags: index.docker.io/${{ secrets.AzureAppService_ContainerUsername_d84994f220744a9b8de5b7356737952e }}/guiais/disease_prediction_api:${{ github.sha }}
         file: ./Dockerfile
 
   deploy:
@@ -47,5 +47,5 @@ jobs:
       with:
         app-name: 'disease-prognosis-api'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_2f710a5f50fb49869b1a4603b2bac9b7 }}
-        images: 'index.docker.io/${{ secrets.AzureAppService_ContainerUsername_09f59c24ea7a4311a7d7c78a83f9a33c }}/guiais/disease_prediction_api:${{ github.sha }}'
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_a9e505d7cfb14617a434f2c0c69af6d6 }}
+        images: 'index.docker.io/${{ secrets.AzureAppService_ContainerUsername_d84994f220744a9b8de5b7356737952e }}/guiais/disease_prediction_api:${{ github.sha }}'
