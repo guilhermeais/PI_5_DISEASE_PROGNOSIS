@@ -69,4 +69,4 @@ jobs:
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_89B4B111F49B4164AA954A7CA5679A0D }}
           
       - name: 'Running the app'  
-        run: python main.py
+        run: pip install -r requirements.txt && python main.py
