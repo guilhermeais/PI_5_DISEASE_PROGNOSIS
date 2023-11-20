@@ -6,3 +6,4 @@ gunicorn
 numpy
 matplotlib
 seaborn
+python-dotenv
