@@ -30,7 +30,7 @@ jobs:
       uses: docker/build-push-action@v3
       with:
         push: true
-        tags: index.docker.io/${{ secrets.AzureAppService_ContainerUsername_d84994f220744a9b8de5b7356737952e }}/guiais/disease_prediction_api:${{ github.sha }}
+        tags: index.docker.io/${{ secrets.AzureAppService_ContainerUsername_d84994f220744a9b8de5b7356737952e }}/disease_prediction_api:${{ github.sha }}
         file: ./Dockerfile
 
   deploy:
@@ -48,4 +48,4 @@ jobs:
         app-name: 'disease-prognosis-api'
         slot-name: 'production'
         publish-profile: ${{ secrets.AzureAppService_PublishProfile_a9e505d7cfb14617a434f2c0c69af6d6 }}
-        images: 'index.docker.io/${{ secrets.AzureAppService_ContainerUsername_d84994f220744a9b8de5b7356737952e }}/guiais/disease_prediction_api:${{ github.sha }}'
+        images: 'index.docker.io/${{ secrets.AzureAppService_ContainerUsername_d84994f220744a9b8de5b7356737952e }}/disease_prediction_api:${{ github.sha }}'
